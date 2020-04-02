@@ -47,7 +47,7 @@ public:
             // the tag uniquely identifying the request (so that different CallData
             // instances can serve different requests concurrently), in this case
             // the memory address of this CallData instance.
-            service_->RequestDoSomething(&ctx_, &request_, &responder_, cq_, cq_,
+            service_->Requestdo_something(&ctx_, &request_, &responder_, cq_, cq_,
                                          this);
         } else if (status_ == PROCESS) {
             // Spawn a new CallData instance to serve new clients while we process
@@ -57,7 +57,7 @@ public:
 
             // CHANGE: process request on main ioc
             main_ioc_.post([&](){
-                auto result = delegate_.do_something(request_.action());
+                auto result = delegate_.do_something(std::to_string(request_.number()));
                 reply_.set_result(result);
 
                 // And we are done! Let the gRPC runtime know we've finished, using the

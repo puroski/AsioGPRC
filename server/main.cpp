@@ -9,7 +9,9 @@
 
 int main(int argc, char** argv) {
     boost::asio::io_context main_ioc{1};
+    boost::asio::io_context::work work(main_ioc);
     boost::asio::io_context grpc_ioc{1};
+    boost::asio::io_context::work grpc_work(grpc_ioc);
 
     MyGRPCService grpc_service{"0.0.0.0:50051", std::make_unique<MyGRPCServiceDelegateImpl>(), main_ioc, grpc_ioc};
     MyGRPCServiceClient grpc_client("0.0.0.0:50051", grpc_ioc);

@@ -23,6 +23,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <tao/json.hpp>
 
 using tcp = boost::asio::ip::tcp;       // from <boost/asio/ip/tcp.hpp>
 namespace http = boost::beast::http;    // from <boost/beast/http.hpp>
@@ -42,7 +43,7 @@ class session : public std::enable_shared_from_this<session>
     tcp::resolver resolver_;
     tcp::socket socket_;
     boost::beast::flat_buffer buffer_; // (Must persist between reads)
-    http::request<http::empty_body> req_;
+    http::request<http::string_body> req_;
     http::response<http::string_body> res_;
 
 public:
@@ -57,6 +58,7 @@ public:
     // Start the asynchronous operation
     void
     run(
+        int number,
             char const* host,
             char const* port,
             char const* target,
@@ -64,8 +66,16 @@ public:
     {
         // Set up an HTTP GET request message
         req_.version(version);
-        req_.method(http::verb::get);
+        req_.method(http::verb::post);
         req_.target(target);
+      tao::json::value json_object = {
+          {"string", std::string(1024, '0')},
+          {"number", number}
+      };
+
+        req_.body() = tao::json::to_string(json_object);
+        req_.set(http::field::content_type, "application/json");
+      req_.set(boost::beast::http::field::content_length, req_.body().size());
         req_.set(http::field::host, host);
         req_.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 
@@ -163,6 +173,8 @@ int main(int argc, char** argv)
 {
     auto const host = "127.0.0.1";
     auto const port = "8081";
+  // "/count" just convert
+  // "/do_something" go thru grpc
     auto const target = "/count";
     int version = 10;
 
@@ -170,7 +182,12 @@ int main(int argc, char** argv)
     boost::asio::io_context ioc;
 
     // Launch the asynchronous operation
-    std::make_shared<session>(ioc)->run(host, port, target, version);
+    std::vector<std::shared_ptr<session>> sessions;
+    for (int i = 0; i < 1000; ++i) {
+      sessions.push_back(std::make_shared<session>(ioc));
+      sessions.back()->run(i, host, port, target, version);
+    }
+
 
     // Run the I/O service. The call will return when
     // the get operation is complete.

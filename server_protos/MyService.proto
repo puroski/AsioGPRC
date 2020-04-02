@@ -13,6 +13,7 @@ service MyService {
 
 message Request {
   string action = 1;
+  int32 number = 2;
 }
 
 message Response {

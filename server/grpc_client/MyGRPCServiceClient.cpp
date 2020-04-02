@@ -35,6 +35,8 @@ using server::Request;
 using server::Response;
 using server::MyService;
 
+#include <tao/json.hpp>
+
 // struct for keeping state and data information
 struct AsyncClientCall {
     // Container for the data we expect from the server.
@@ -61,8 +63,10 @@ MyGRPCServiceClient::MyGRPCServiceClient(const std::string& address, boost::asio
 // Assembles the client's payload and sends it to the server.
 void MyGRPCServiceClient::do_something(const std::string &action, std::function<void(const std::string&)> callback) {
     // Data we are sending to the server.
+    auto json = tao::json::from_string(action);
     Request request;
-    request.set_action(action);
+    request.set_action(json.as<std::string>("string"));
+    request.set_number(json.as<int>("number"));
 
     // Call object to store rpc data
     AsyncClientCall* call = new AsyncClientCall;
@@ -73,7 +77,7 @@ void MyGRPCServiceClient::do_something(const std::string &action, std::function<
     // Because we are using the asynchronous API, we need to hold on to
     // the "call" instance in order to get updates on the ongoing RPC.
     call->response_reader =
-            stub_->PrepareAsyncDoSomething(&call->context, request, &cq_);
+            stub_->PrepareAsyncdo_something(&call->context, request, &cq_);
 
     // StartCall initiates the RPC call
     call->response_reader->StartCall();

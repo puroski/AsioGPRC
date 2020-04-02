@@ -2,13 +2,12 @@ cmake_minimum_required(VERSION 3.10)
 
 project(server_protos)
 
-find_package(Protobuf REQUIRED)
-find_package(GRPC REQUIRED)
 
-file(GLOB PROTO_FILES *.proto)
-protobuf_generate_cpp(PROTO_SRC PROTO_HEADER ${PROTO_FILES})
-grpc_generate_cpp(GRPC_SRCS GRPC_HDRS ${PROTO_SRC_DIR} ${PROTO_FILES})
+#file(GLOB PROTO_FILES *.proto)
+#protobuf_generate_cpp(PROTO_SRC PROTO_HEADER ${PROTO_FILES})
+#grpc_generate_cpp(GRPC_SRCS GRPC_HDRS ${PROTO_SRC_DIR} ${PROTO_FILES})
 
-add_library(${PROJECT_NAME} ${PROTO_SRC} ${PROTO_HEADER} ${GRPC_SRCS} ${GRPC_HDRS})
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROTOBUF_INCLUDE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-target_link_libraries(${PROJECT_NAME} gRPC::grpc++ protobuf::libprotobuf)
+add_library(${PROJECT_NAME} MyService.pb.h MyService.pb.cc MyService.grpc.pb.cc MyService.grpc.pb.h)
+target_include_directories(${PROJECT_NAME} PUBLIC . /opt/protobuf/usr/local/include /home/nomenas/Projects/grpc/include)
+target_link_directories(${PROJECT_NAME} PUBLIC /opt/protobuf/usr/local/lib /home/nomenas/Projects/grpc/cmake/build)
+target_link_libraries(${PROJECT_NAME} protobuf gpr grpc++ pthread)

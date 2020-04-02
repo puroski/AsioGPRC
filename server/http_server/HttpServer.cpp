@@ -21,6 +21,8 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <tao/json/value.hpp>
+#include <tao/json.hpp>
 
 namespace ip = boost::asio::ip;         // from <boost/asio.hpp>
 using tcp = boost::asio::ip::tcp;       // from <boost/asio.hpp>
@@ -32,7 +34,8 @@ public:
     HttpConnection(tcp::socket socket, HttpServerDelegate& delegate, boost::asio::io_context& ioc)
             : socket_(std::move(socket))
             , delegate_{delegate}
-            , ioc_{ioc} {}
+            , ioc_{ioc}
+            , deadline_{ioc, std::chrono::seconds(60)}{}
 
     // Initiate the asynchronous operations associated with the connection.
     void start() {
@@ -50,14 +53,13 @@ private:
     boost::beast::flat_buffer buffer_{8192};
 
     // The request message.
-    http::request<http::dynamic_body> request_;
+    http::request<http::string_body> request_;
 
     // The response message.
     http::response<http::dynamic_body> response_;
 
     // The timer for putting a deadline on connection processing.
-    boost::asio::basic_waitable_timer<std::chrono::steady_clock> deadline_{
-            socket_.get_executor().context(), std::chrono::seconds(60)};
+    boost::asio::basic_waitable_timer<std::chrono::steady_clock> deadline_;
 
     // Asynchronously receive a complete request message.
     void read_request() {
@@ -81,7 +83,7 @@ private:
         response_.keep_alive(false);
 
         switch(request_.method()) {
-            case http::verb::get:
+            case http::verb::post:
                 response_.result(http::status::ok);
                 response_.set(http::field::server, "Beast");
                 process_response();
@@ -106,6 +108,7 @@ private:
         auto temp = request_.target();
         if(request_.target() == "/count")
         {
+          auto json = tao::json::from_string(request_.body());
             response_.set(http::field::content_type, "text/html");
             boost::beast::ostream(response_.body())
                     << "<html>\n"
@@ -136,7 +139,7 @@ private:
         }
         else if(request_.target() == "/do_something")
         {
-            delegate_.do_something("action", [&](const std::string& result) {
+            delegate_.do_something(request_.body(), [&](const std::string& result) {
                 response_.set(http::field::content_type, "text/html");
                 boost::beast::ostream(response_.body())
                         <<  "<html>\n"
