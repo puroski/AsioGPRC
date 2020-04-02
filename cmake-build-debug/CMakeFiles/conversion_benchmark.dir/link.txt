@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/conversion_benchmark.dir/main.cpp.o  -o conversion_benchmark  -L/home/nomenas/Projects/AsioGPRC/cmake-build-debug/external/lib  -L/opt/protobuf/usr/local/lib -Wl,-rpath,/home/nomenas/Projects/AsioGPRC/cmake-build-debug/external/lib:/opt/protobuf/usr/local/lib server_protos/libserver_protos.a -lpthread -lprotobuf 

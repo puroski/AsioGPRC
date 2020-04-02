@@ -1,0 +1,1 @@
+cmd='/snap/clion/107/bin/cmake/linux/bin/cmake;-DTAOCPP_JSON_BUILD_EXAMPLES=OFF;-DTAOCPP_JSON_BUILD_TESTS=OFF;-DCMAKE_INSTALL_PREFIX=/home/nomenas/Projects/AsioGPRC/cmake-build-debug/external;-GCodeBlocks - Unix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

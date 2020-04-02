@@ -7,14 +7,8 @@ option objc_class_prefix = "";
 
 package server;
 
-service MyService {
-  rpc do_something (Request) returns (Response) {}
-}
 
-message Request {
-  string action = 1;
-}
-
-message Response {
-  string result = 1;
+message Message {
+  string string = 1;
+  int32 number = 2;
 }

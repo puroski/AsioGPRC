@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="server_protos"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\taojson-prefix\;CMake Files\cmake-build-debug\taojson-prefix\tmp\;CMake Files\http_client\;CMake Files\server_protos\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="server_protos">
+				<Option output="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/libserver_protos.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/external/include"/>
+					<Add directory="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos"/>
+					<Add directory="/opt/protobuf/usr/local/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 server_protos"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="server_protos/fast">
+				<Option output="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/libserver_protos.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/external/include"/>
+					<Add directory="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos"/>
+					<Add directory="/opt/protobuf/usr/local/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 server_protos/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/nomenas/Projects/AsioGPRC/server_protos/MyService.pb.cc">
+			<Option target="server_protos"/>
+		</Unit>
+		<Unit filename="/home/nomenas/Projects/AsioGPRC/server_protos/MyService.pb.h">
+			<Option target="server_protos"/>
+		</Unit>
+		<Unit filename="/home/nomenas/Projects/AsioGPRC/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/nomenas/Projects/AsioGPRC/InstallTaoJson.cmake">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/nomenas/Projects/AsioGPRC/cmake-build-debug/taojson-prefix/tmp/taojson-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\taojson-prefix\tmp\"/>
+		</Unit>
+		<Unit filename="/home/nomenas/Projects/AsioGPRC/http_client/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\http_client\"/>
+		</Unit>
+		<Unit filename="/home/nomenas/Projects/AsioGPRC/server_protos/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\server_protos\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

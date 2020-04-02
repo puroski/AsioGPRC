@@ -1,0 +1,3 @@
+repository='https://github.com/taocpp/json.git'
+module=''
+tag='origin'

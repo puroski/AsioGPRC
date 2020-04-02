@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/CMakeFiles/taojson"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/CMakeFiles/taojson.rule"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/CMakeFiles/taojson-complete.rule"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/taojson-prefix/src/taojson-stamp/taojson-install.rule"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/taojson-prefix/src/taojson-stamp/taojson-mkdir.rule"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/taojson-prefix/src/taojson-stamp/taojson-download.rule"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/taojson-prefix/src/taojson-stamp/taojson-update.rule"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/taojson-prefix/src/taojson-stamp/taojson-patch.rule"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/taojson-prefix/src/taojson-stamp/taojson-configure.rule"
+		},
+		{
+			"file" : "/home/nomenas/Projects/AsioGPRC/cmake-build-debug/taojson-prefix/src/taojson-stamp/taojson-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"taojson"
+		],
+		"name" : "taojson"
+	}
+}

@@ -1,0 +1,10 @@
+# Hashes of file build rules.
+f8cd28f86ad23b70b4cb55a5ec88bc64 CMakeFiles/taojson
+231f117ba0c38a8cbab1421be4539359 CMakeFiles/taojson-complete
+609eff3491b00fda7526845c3ff38cbe taojson-prefix/src/taojson-stamp/taojson-build
+49c4ab65114565d74d50ec4b0005550f taojson-prefix/src/taojson-stamp/taojson-configure
+70b3a884bd748845a998b0ffcccedca8 taojson-prefix/src/taojson-stamp/taojson-download
+7acfe3449ac0cbe1dbf139dc730f9e62 taojson-prefix/src/taojson-stamp/taojson-install
+4a48c5bf45445174f8b6a727baf5a968 taojson-prefix/src/taojson-stamp/taojson-mkdir
+5ef0b4bd71eb367dcce83220f7eea378 taojson-prefix/src/taojson-stamp/taojson-patch
+6964b6091a9cdd6203c96785cb74c94a taojson-prefix/src/taojson-stamp/taojson-update

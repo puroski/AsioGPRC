@@ -42,7 +42,7 @@ class session : public std::enable_shared_from_this<session>
     tcp::resolver resolver_;
     tcp::socket socket_;
     boost::beast::flat_buffer buffer_; // (Must persist between reads)
-    http::request<http::empty_body> req_;
+    http::request<http::string_body> req_;
     http::response<http::string_body> res_;
 
 public:
@@ -66,6 +66,7 @@ public:
         req_.version(version);
         req_.method(http::verb::get);
         req_.target(target);
+        req_.body() = "body";
         req_.set(http::field::host, host);
         req_.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 

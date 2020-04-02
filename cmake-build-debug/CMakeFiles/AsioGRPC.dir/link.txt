@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/AsioGRPC.dir/main.cpp.o  -o AsioGRPC  -L/home/nomenas/Projects/AsioGPRC/cmake-build-debug/external/lib  -L/opt/protobuf/usr/local/lib -Wl,-rpath,/home/nomenas/Projects/AsioGPRC/cmake-build-debug/external/lib:/opt/protobuf/usr/local/lib server_protos/libprotos.a -lpthread -lprotobuf 

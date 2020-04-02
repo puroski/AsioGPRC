@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/banchmark.dir/main.cpp.o  -o banchmark 

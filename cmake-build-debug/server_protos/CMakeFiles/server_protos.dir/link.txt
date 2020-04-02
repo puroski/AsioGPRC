@@ -1,0 +1,2 @@
+/usr/bin/ar qc libserver_protos.a  CMakeFiles/server_protos.dir/MyService.pb.cc.o
+/usr/bin/ranlib libserver_protos.a

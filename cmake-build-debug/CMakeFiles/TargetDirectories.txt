@@ -1,0 +1,10 @@
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/CMakeFiles/taojson.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/CMakeFiles/conversion_benchmark.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/http_client/CMakeFiles/rebuild_cache.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/http_client/CMakeFiles/http_client.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/http_client/CMakeFiles/edit_cache.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/CMakeFiles/rebuild_cache.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/CMakeFiles/server_protos.dir
+/home/nomenas/Projects/AsioGPRC/cmake-build-debug/server_protos/CMakeFiles/edit_cache.dir
