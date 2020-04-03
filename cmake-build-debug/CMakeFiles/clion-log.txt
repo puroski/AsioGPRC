@@ -1,4 +1,0 @@
-/snap/clion/107/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DBOOST_ROOT=/home/nomenas/Projects/boost -G "CodeBlocks - Unix Makefiles" /home/nomenas/Projects/AsioGPRC
--- Configuring done
--- Generating done
--- Build files have been written to: /home/nomenas/Projects/AsioGPRC/cmake-build-debug

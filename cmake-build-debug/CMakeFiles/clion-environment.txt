@@ -1,3 +1,0 @@
-ToolSet: 1.0 (local)Options: 
-
-Options:-DBOOST_ROOT=/home/nomenas/Projects/boost
