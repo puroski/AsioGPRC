@@ -12,6 +12,8 @@
 
 #include "MyGRPCServiceDelegate.h"
 
+#include <thread>
+
 class MyGRPCService final {
 public:
     MyGRPCService(const std::string& server_address, std::unique_ptr<MyGRPCServiceDelegate> delegate,
@@ -27,6 +29,9 @@ private:
     std::unique_ptr<grpc::ServerCompletionQueue> cq_;
     server::MyService::AsyncService service_;
     std::unique_ptr<grpc::Server> server_;
+
+  bool is_running_ = true;
+  std::thread thread_;
 };
 
 #endif //PROJECT_MYGRPCSERVICE_H

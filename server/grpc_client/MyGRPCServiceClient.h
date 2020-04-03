@@ -15,6 +15,7 @@
 class MyGRPCServiceClient final {
 public:
     explicit MyGRPCServiceClient(const std::string& address, boost::asio::io_context& grpc_ioc);
+  ~MyGRPCServiceClient();
 
     // Assembles the client's payload and sends it to the server.
     void do_something(const std::string &action, std::function<void(const std::string&)> callback);
@@ -31,6 +32,8 @@ private:
     grpc::CompletionQueue cq_;
 
     boost::asio::io_context& grpc_ioc_;
+    bool is_running_ = true;
+    std::thread thread_;
 };
 
 #endif //PROJECT_MYGRPCSERVICECLIENT_H

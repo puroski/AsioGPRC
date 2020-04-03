@@ -117,17 +117,20 @@ MyGRPCService::MyGRPCService(const std::string& server_address, std::unique_ptr<
     // Finally assemble the server.
     server_ = builder.BuildAndStart();
 
-    handle_rpcs();
+
+    thread_ = std::thread(&MyGRPCService::handle_rpcs, this);
 }
 
 MyGRPCService::~MyGRPCService() {
+    is_running_ = false;
+  thread_.join();
     server_->Shutdown();
     // Always shutdown the completion queue after the server.
     cq_->Shutdown();
 }
 
 void MyGRPCService::handle_rpcs() {
-    grpc_ioc_.post([&]() {
+    while(is_running_) {
         new CallData(&service_, cq_.get(), main_ioc_, *delegate_);
         void* tag;  // uniquely identifies a request.
         bool ok;
@@ -138,5 +141,5 @@ void MyGRPCService::handle_rpcs() {
         }
 
         handle_rpcs();
-    });
+    };
 }

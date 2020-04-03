@@ -57,7 +57,12 @@ struct AsyncClientCall {
 MyGRPCServiceClient::MyGRPCServiceClient(const std::string& address, boost::asio::io_context& grpc_ioc)
         : stub_(MyService::NewStub(grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials())))
         , grpc_ioc_{grpc_ioc} {
-    handle_response();
+    thread_ = std::thread(&MyGRPCServiceClient::handle_response, this);
+}
+
+MyGRPCServiceClient::~MyGRPCServiceClient() {
+  is_running_ = false;
+  thread_.join();
 }
 
 // Assembles the client's payload and sends it to the server.
@@ -89,7 +94,7 @@ void MyGRPCServiceClient::do_something(const std::string &action, std::function<
 }
 
 void MyGRPCServiceClient::handle_response() {
-    grpc_ioc_.post([&]{
+    while (is_running_) {
         void* got_tag;
         bool ok = false;
 
@@ -109,7 +114,7 @@ void MyGRPCServiceClient::handle_response() {
             delete call;
         }
         handle_response();
-    });
+    };
 }
 
 
